@@ -1,0 +1,16 @@
+mongo:
+  seeds:
+  - host: scim-db
+    port: 27017
+  database: scim-db
+  credentials:
+    userName: dbuser
+    password: scimdb
+logging:
+  appenders:
+    - type: console
+      threshold: DEBUG
+      logFormat: "[%thread] %X{audit-identifier} %-5level %logger{36} - %msg%n"
+
+server:
+  rootPath: "/api/*"

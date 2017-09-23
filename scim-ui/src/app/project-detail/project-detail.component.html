@@ -1,0 +1,16 @@
+<h4>
+  Project: {{project.name}}
+</h4>
+<table class="table: table-striped table-bordered table-hover" width="100%">
+  <tbody>
+    <tr>
+      <td>Name:</td>
+      <td><input [(ngModel)]="project.name" type="text" class="form-control"></td>
+    </tr>
+    <tr>
+      <td>Url:</td>
+      <td><input [(ngModel)]="project.gitUrl" type="text" class="form-control"></td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-primary" (click)="save()">Save</button>

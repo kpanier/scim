@@ -1,0 +1,32 @@
+version: '2'
+services:
+  scim-db:
+      container_name: scim-db
+      build:
+        context: ./scim-db
+      image: scim-db:latest
+      ports:
+        - "27017:27017"
+        - "28017:28017"
+      environment:
+        MONGODB_DATABASE: scim-db
+        MONGODB_USER: dbuser
+        MONGODB_PASS: scimdb
+      networks:
+       - sda
+  scim-service:
+    container_name: scim-service
+    depends_on:
+      - scim-db
+    build:
+      context: ./scim-service
+    image: scim-service:latest
+    ports:
+      - "8090:8080"
+      - "8091:8081"
+    networks:
+     - sda    
+networks:
+  sda:
+    external:
+      name: sda.net
